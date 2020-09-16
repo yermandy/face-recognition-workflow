@@ -22,20 +22,6 @@ def init_video():
     height = int(frame.shape[0] * scale_percent / 100)
     dim = (width, height)
 
-    destination = np.array([
-        [30.2946, 51.6963],
-        [65.5318, 51.5014],
-        [48.0252, 71.7366],
-        [33.5493, 92.3655],
-        [62.7299, 92.2041]], dtype=np.float32)
-
-    destination[:, 0] -= 30
-    destination[:, 1] -= 51
-
-    center = np.array([[width / 2, height / 2]], dtype=np.float32)
-
-    destination += center
-
     return capture, dim
 
 
