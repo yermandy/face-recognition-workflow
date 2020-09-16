@@ -72,9 +72,16 @@ def capture_video():
 
             distances = 1 - (descriptors @ embeddings)
 
-            identity_id = descriptors_ids[np.argmin(distances)]
+            argmin_dist = np.argmin(distances)
 
-            identity_name = identity_names[identity_id]
+            threshold = 0.5
+
+            if distances[argmin_dist] > threshold:
+                identity_name = 'unknown'
+            else:
+                identity_id = descriptors_ids[np.argmin(distances)]
+                identity_name = identity_names[identity_id]
+
             # print(identity_names[identity_id])
             # print(distances)
 
